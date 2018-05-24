@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { ColumnDraggableDirective } from './components/directives/column-draggable.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ColumnDraggableDirective
   ],
   imports: [
     BrowserModule
