@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Resizable */
+.ui-table-resizable > .ui-table-wrapper {
+    overflow-x: auto;
+}
+
+.ui-table-resizable .ui-table-thead > tr > th,
+.ui-table-resizable .ui-table-tfoot > tr > td,
+.ui-table-resizable .ui-table-data > tr > td {
+    overflow: hidden;
+}
+
+.ui-resizable-column {
+    background-clip: padding-box;
+    position: relative;
+}
+
+.ui-table-resizable-fit .ui-resizable-column:last-child .ui-column-resizer {
+    display: none;
+}
+
+.ui-table1 .ui-column-resizer {
+    display: block;
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: .5em;
+    height: 100%;
+    padding: 0px;
+    cursor:col-resize;
+    border: 1px solid transparent;
+}
+
+.ui-table1 .ui-column-resizer-helper {
+    width: 1px;
+    position: absolute;
+    z-index: 10;
+    display: none;
+}

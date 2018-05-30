@@ -1,32 +1,39 @@
-<div class="container">
+<div class="container" #container id='tblCntainer'class='ui-table1'>
   <h2>Bordered Table</h2>
-  <table class="table table-bordered">
+  <table class="table table-bordered" id='tble'>
     <thead>
       <tr>
-        <th class="ui-resizable-column">
-            <span class = "ui-column-resizer"
-            appColumnDraggable="myTabBdy" tbodyId="testId"></span>Firstname</th>
-        <th class="ui-resizable-column">Lastname</th>
-        <th>Email</th>
+        <th *ngFor="let col of columns" class="ui-resizable-column"
+        appResizableColumns containerId="#tblCntainer"
+        resizeDivId="#tblResizeHlpr" tableId="#tble" columnResizeMode="fit">{{col.header}}</th>
       </tr>
     </thead>
     <tbody id="myTabBdy">
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+      <tr *ngFor="let d of data">
+        <td *ngFor="let col of columns">{{d[col.field]}}</td>
       </tr>
     </tbody>
   </table>
+  <div id='tblResizeHlpr' #resizeHelper class="ui-column-resizer-helper ui-state-highlight" style="display:none"></div>
 </div>
 
+&nbsp;&nbsp;
+
+<!-- <div class="container" #container1 id='tblCntainer1'class='ui-table'>
+  <h2>Bordered Table 2</h2>
+  <table class="table table-bordered" id='tble1'>
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns" class="ui-resizable-column"
+        appResizableColumns containerId="#tblCntainer1"
+        resizeDivId="#tblResizeHlpr1" tableId="#tble1" columnResizeMode="fit">{{col.header}}</th>
+      </tr>
+    </thead>
+    <tbody id="myTabBdy">
+      <tr *ngFor="let d of data">
+        <td *ngFor="let col of columns">{{d[col.field]}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id='tblResizeHlpr1' #resizeHelper class="ui-column-resizer-helper ui-state-highlight" style="display:none"></div>
+</div> -->

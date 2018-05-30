@@ -1,20 +1,21 @@
+import { DomHandler } from './components/directives/domhandler';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ColumnDraggableDirective } from './components/directives/column-draggable.directive';
+import { ResizableColumnsDirective } from './components/directives/column-draggable.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ColumnDraggableDirective
+    ResizableColumnsDirective
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [DomHandler],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
