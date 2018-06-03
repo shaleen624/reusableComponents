@@ -13,3 +13,8 @@
     cursor: col-resize;
     border: 1px solid transparent;
   } */
+
+  .container {
+      height: 500px;
+      overflow: auto;
+  }

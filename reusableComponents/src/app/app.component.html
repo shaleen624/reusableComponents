@@ -1,16 +1,23 @@
-<div class="container" #container id='tblCntainer'class='ui-table1'>
+<div class="container" #container id='tblCntainer' class='ui-table1' >
   <h2>Bordered Table</h2>
-  <table class="table table-bordered" id='tble'>
+  <table class="table table-bordered table-striped" id='tble'>
     <thead>
       <tr>
-        <th *ngFor="let col of columns" class="ui-resizable-column"
-        appResizableColumns containerId="#tblCntainer"
-        resizeDivId="#tblResizeHlpr" tableId="#tble" columnResizeMode="fit">{{col.header}}</th>
+        <th *ngFor="let col of columns" class="ui-resizable-column" appResizableColumns containerId="#tblCntainer" resizeDivId="#tblResizeHlpr"
+          tableId="#tble" columnResizeMode="fit">{{col.header}}</th>
       </tr>
     </thead>
-    <tbody id="myTabBdy">
-      <tr *ngFor="let d of data">
-        <td *ngFor="let col of columns">{{d[col.field]}}</td>
+    <tbody id="myTabBdy" >
+    <tbody id="myTabBdy" dnd-sortable-container [sortableData]="data">
+    <!-- <tbody id="myTabBdy" [sortablejs]="data"> -->
+    <!-- <tbody id="myTabBdy"> -->
+      <tr *ngFor="let d of data; let i = index"  dnd-sortable [sortableIndex]="i">
+        <td *ngFor="let col of columns">
+          <span *ngIf="col.field!== 'vin'">{{d[col.field]}}</span>
+          <span *ngIf="col.field=== 'vin'">
+            <input [(ngModel)]="d[col.field]">
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>
